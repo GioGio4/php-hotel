@@ -52,6 +52,10 @@ $hotels = [
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP - Hotel</title>
 
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
 </head>
 
 
@@ -59,23 +63,40 @@ $hotels = [
 
 <main>
 
-<div>
-    <?php foreach ($hotels as $hotel): ?>
-
-        <h3><?= $hotel['name']?> </h3>
-        <ul>
-            <li><?= $hotel['description']?></li>
-            <li>Parcheggio:<?php
-                if($hotel['parking']== true){
-                    echo 'SI';
-                } else{
-                    echo 'NO';
-                }
-              ?></li>
-            <li>Voto:<?= $hotel['vote']?></li>
-            <li>Distanza:<?= $hotel['distance_to_center']?>km</li>
-        </ul>
-    <?php endforeach?>
+<div class="container mt-4">
+    
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th scope="col">Nome Hotel</th>
+                <th scope="col">Descrizione</th>
+                <th scope="col">Parcheggio</th>
+                <th scope="col">Voto</th>
+                <th scope="col">Distanza dal centro</th>
+            </tr>
+        </thead>
+        
+        <?php foreach ($hotels as $hotel): ?>
+            <tbody class="table-secondary">
+                <tr>
+                    <th><?= $hotel['name']?></th>
+                    <td><?= $hotel['description']?></td>
+                    <td>
+                        <?php
+                            if($hotel['parking']== true){
+                            echo 'SI';
+                            } else{
+                            echo 'NO';
+                            }
+                        ?>
+                    </td>
+                    <td><?= $hotel['vote']?></td>
+                    <td><?= $hotel['distance_to_center']?> Km</td>
+                </tr>
+              
+            </tbody>
+        <?php endforeach?>
+        </table>
 </div>
 </main>
 

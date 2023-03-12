@@ -51,8 +51,37 @@ $hotels = [
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP - Hotel</title>
+
 </head>
+
+
 <body>
+
+<main>
+
+<div>
+    <?php foreach ($hotels as $hotel): ?>
+
+        <h3><?= $hotel['name']?> </h3>
+        <ul>
+            <li><?= $hotel['description']?></li>
+            <li>Parcheggio:<?php
+                if($hotel['parking']== true){
+                    echo 'SI';
+                } else{
+                    echo 'NO';
+                }
+              ?></li>
+            <li>Voto:<?= $hotel['vote']?></li>
+            <li>Distanza:<?= $hotel['distance_to_center']?>km</li>
+        </ul>
+    <?php endforeach?>
+</div>
+</main>
+
     
 </body>
+
+
+
 </html>
